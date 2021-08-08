@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\CommentResource;
+use App\Models\Comment;
 
 
 class CommentController extends Controller
 {
     public function get_comments(Request $request){
-        return response()->json([
-            'message'=>'Temporary message'
-        ]);
+
+        $collection = Comment::parents()->
+            orderBy('id','desc')->
+            paginate(5);
+
+        return CommentResource::collection($collection);
     }
 }
