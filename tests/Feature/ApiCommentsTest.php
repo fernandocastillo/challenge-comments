@@ -17,4 +17,24 @@ class ApiCommentsTest extends TestCase
             ->assertStatus(Response::HTTP_OK)
         ;
     }
+
+
+    public function test_comments_json_structure(){
+
+
+
+        $this
+            ->getJson('/api/comment')
+            ->assertStatus(Response::HTTP_OK)
+            ->assertJsonStructure([
+                'data'  =>  [
+                    '*' => [
+                        'user_name',
+                        'comment',
+                        'created_at'
+                    ]
+                ]
+            ])
+        ;
+    }
 }
