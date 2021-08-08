@@ -19,6 +19,9 @@
     </li>
   </ul>
 
+    <pagination :data="paginator" @pagination-change-page="getResults">
+
+    </pagination>
   </div>
 </template>
 
@@ -45,6 +48,13 @@ export default {
   methods: {
     since: function(date){
       return moment(date).fromNow()
+    },
+    getResults(page = 1) {
+      axios.get('comment?page=' + page)
+          .then(response => {
+            this.paginator = response.data;
+            this.comments = response.data.data;
+          });
     }
   }
 }

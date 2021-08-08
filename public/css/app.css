@@ -1,2 +1,22 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.pagination {
+  padding: 10px;
+  border: #8a8c8d solid 1px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pagination .page-item {
+  font-size: 12px;
+  color: #c7c7c7;
+}
+
+.pagination .active {
+  font-weight: bolder;
+  color: #5b5b5b;
+}
 
