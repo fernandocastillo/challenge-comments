@@ -24,8 +24,16 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|size:255|alpha_num',
-            'comment' => 'required|size:500|alpha_num'
+            'name' => [
+                'required',
+                'max:255',
+                'regex:/(^([a-zA-Z0-9 ]+)(\d+)?$)/u'
+            ],
+            'comment' => [
+                'required',
+                'max:500',
+                'regex:/(^([a-zA-Z0-9 ]+)(\d+)?$)/u'
+            ]
         ];
     }
 }

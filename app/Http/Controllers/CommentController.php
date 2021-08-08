@@ -22,5 +22,17 @@ class CommentController extends Controller
 
     public function create_comment(CommentRequest $request){
 
+        $payload = [
+            'name' => $request->name,
+            'comment' => $request->comment,
+        ];
+
+        $comment = Comment::create($payload);
+
+        return response()
+            ->json([
+                'message' => 'Comment posted successfully',
+                'comment' => new CommentResource($comment)
+            ]);
     }
 }
