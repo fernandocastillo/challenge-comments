@@ -33,7 +33,10 @@ class CommentRequest extends FormRequest
                 'required',
                 'max:500',
                 'regex:/(^([a-zA-Z0-9 ]+)(\d+)?$)/u'
-            ]
+            ],
+            'parent_id' => [
+                'exists:comments,id'
+            ],
         ];
     }
 }

@@ -10,7 +10,7 @@ class AddSelfForeignToComments extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->integer('parent_id')->unsigned()->nullable()->after('id');
+            $table->char('parent_id', 36)->nullable()->after('id');
             $table->foreign('parent_id')->references('id')->on('comments');
         });
     }
