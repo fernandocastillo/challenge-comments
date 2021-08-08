@@ -1098,6 +1098,7 @@ window.Vue = __webpack_require__(34);
 
 Vue.component('layout-component', __webpack_require__(38));
 Vue.component('post-component', __webpack_require__(41));
+Vue.component('comment-component', __webpack_require__(52));
 
 var app = new Vue({
   el: '#app'
@@ -31837,9 +31838,9 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "border-4 border-dashed border-gray-200 rounded-lg h-96 p-5"
+                  "border-4 border-dashed border-gray-200 rounded-lg  p-5"
               },
-              [_c("example-component")],
+              [_c("post-component")],
               1
             )
           ])
@@ -32068,6 +32069,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -32083,51 +32130,240 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "py-16  px-4 sm:px-6 lg:px-8 bg-white overflow-hidden" },
+      [
+        _c("div", { staticClass: "max-w-max lg:max-w-7xl mx-auto" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "relative" }, [
+            _c(
+              "svg",
+              {
+                staticClass:
+                  "hidden md:block absolute top-0 right-0 -mt-20 -mr-20",
+                attrs: {
+                  width: "404",
+                  height: "384",
+                  fill: "none",
+                  viewBox: "0 0 404 384",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c("defs", [
+                  _c(
+                    "pattern",
+                    {
+                      attrs: {
+                        id: "95e8f2de-6d30-4b7e-8159-f791729db21b",
+                        x: "0",
+                        y: "0",
+                        width: "20",
+                        height: "20",
+                        patternUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("rect", {
+                        staticClass: "text-gray-200",
+                        attrs: {
+                          x: "0",
+                          y: "0",
+                          width: "4",
+                          height: "4",
+                          fill: "currentColor"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("rect", {
+                  attrs: {
+                    width: "404",
+                    height: "384",
+                    fill: "url(#95e8f2de-6d30-4b7e-8159-f791729db21b)"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "svg",
+              {
+                staticClass:
+                  "hidden md:block absolute bottom-0 left-0 -mb-20 -ml-20",
+                attrs: {
+                  width: "404",
+                  height: "384",
+                  fill: "none",
+                  viewBox: "0 0 404 384",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c("defs", [
+                  _c(
+                    "pattern",
+                    {
+                      attrs: {
+                        id: "7a00fe67-0343-4a3c-8e81-c145097a3ce0",
+                        x: "0",
+                        y: "0",
+                        width: "20",
+                        height: "20",
+                        patternUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("rect", {
+                        staticClass: "text-gray-200",
+                        attrs: {
+                          x: "0",
+                          y: "0",
+                          width: "4",
+                          height: "4",
+                          fill: "currentColor"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("rect", {
+                  attrs: {
+                    width: "404",
+                    height: "384",
+                    fill: "url(#7a00fe67-0343-4a3c-8e81-c145097a3ce0)"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "grid grid-cols-7 gap-4 " }, [
+      _c("div", { staticClass: "col-span-1 " }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-span-5 " },
+        [
+          _c(
+            "p",
+            {
+              staticClass:
+                "mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+            },
+            [_vm._v("Comments")]
+          ),
+          _vm._v(" "),
+          _c("comment-component")
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "md:flex md:items-center md:justify-between" },
-      [
-        _c("div", { staticClass: "flex-1 min-w-0" }, [
-          _c(
-            "h2",
-            {
-              staticClass:
-                "text-2xl font-bold leading-7 text-white sm:text-3xl sm:truncate"
-            },
-            [_vm._v("\n      Back End Developer\n    ")]
-          )
-        ]),
+    return _c("div", { staticClass: "relative z-10 mb-8 md:mb-2 md:px-6" }, [
+      _c("div", { staticClass: "text-base max-w-prose lg:max-w-none" }, [
+        _c(
+          "h2",
+          {
+            staticClass:
+              "leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
+          },
+          [_vm._v("Transactions")]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "mt-4 flex md:mt-0 md:ml-4" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500",
-              attrs: { type: "button" }
-            },
-            [_vm._v("\n      Edit\n    ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500",
-              attrs: { type: "button" }
-            },
-            [_vm._v("\n      Publish\n    ")]
-          )
-        ])
-      ]
-    )
+        _c(
+          "p",
+          {
+            staticClass:
+              "mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+          },
+          [_vm._v("A better way to send money")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "relative md:bg-white md:p-6" }, [
+      _c("div", { staticClass: "lg:grid lg:grid-cols-2 lg:gap-6" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "prose prose-indigo prose-lg text-gray-500 lg:max-w-none"
+          },
+          [
+            _c("p", [
+              _vm._v(
+                "Ultrices ultricies a in odio consequat egestas rutrum. Ut vitae aliquam in ipsum. Duis nullam placerat cursus risus ultrices nisi, vitae tellus in. Qui non fugiat aut minus aut rerum. Perspiciatis iusto mollitia iste minima soluta id."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue "
+              ),
+              _c("a", { attrs: { href: "#" } }, [_vm._v("maecenas")]),
+              _vm._v(
+                " risus nulla ultrices congue nunc tortor. Eu leo risus porta integer suspendisse sed sit ligula elit."
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "mt-6 prose prose-indigo prose-lg text-gray-500 lg:mt-0"
+          },
+          [
+            _c("p", [
+              _vm._v(
+                "Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue maecenas risus nulla ultrices congue nunc tortor."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Eu leo risus porta integer suspendisse sed sit ligula elit. Elit egestas lacinia sagittis pellentesque neque dignissim vulputate sodales. Diam sed mauris felis risus, ultricies mauris netus tincidunt. Mauris sit eu ac tellus nibh non eget sed accumsan. Viverra ac sed venenatis pulvinar elit. Cras diam quis tincidunt lectus. Non mi vitae, scelerisque felis nisi, netus amet nisl."
+              )
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-8 inline-flex rounded-md shadow" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700",
+            attrs: { href: "#" }
+          },
+          [_vm._v("\n              Contact sales\n            ")]
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -32265,6 +32501,180 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CommentComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4720d6d6", Component.options)
+  } else {
+    hotAPI.reload("data-v-4720d6d6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var messages = [{
+  id: 1,
+  subject: 'Velit placeat sit ducimus non sed',
+  sender: 'Gloria Roberston',
+  time: '1d ago',
+  datetime: '2021-01-27T16:35',
+  preview: 'Doloremque dolorem maiores assumenda dolorem facilis. Velit vel in a rerum natus facere. Enim rerum eaque qui facilis. Numquam laudantium sed id dolores omnis in. Eos reiciendis deserunt maiores et accusamus quod dolor.'
+}];
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      messages: messages
+    };
+  }
+});
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "ul",
+    { staticClass: "divide-y divide-gray-200 bg-" },
+    _vm._l(_vm.messages, function(message) {
+      return _c(
+        "li",
+        {
+          key: message.id,
+          staticClass:
+            "relative bg-white py-5 px-1 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
+        },
+        [
+          _c("div", { staticClass: "flex justify-between space-x-3" }, [
+            _c("div", { staticClass: "min-w-0 flex-1" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "block focus:outline-none",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("span", {
+                    staticClass: "absolute inset-0",
+                    attrs: { "aria-hidden": "true" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "text-sm font-medium text-gray-900 truncate"
+                    },
+                    [_vm._v(_vm._s(message.sender))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-sm text-gray-500 truncate" }, [
+                    _vm._v(_vm._s(message.subject))
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "time",
+              {
+                staticClass:
+                  "flex-shrink-0 whitespace-nowrap text-sm text-gray-500",
+                attrs: { datetime: message.datetime }
+              },
+              [_vm._v(_vm._s(message.time))]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-1" }, [
+            _c("p", { staticClass: "line-clamp-2 text-sm text-gray-600" }, [
+              _vm._v("\n        " + _vm._s(message.preview) + "\n      ")
+            ])
+          ])
+        ]
+      )
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4720d6d6", module.exports)
   }
 }
 

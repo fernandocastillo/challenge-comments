@@ -89,8 +89,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <!-- Replace with your content -->
           <div class="px-4 py-8 sm:px-0">
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 p-5">
-              <example-component></example-component>
+            <div class="border-4 border-dashed border-gray-200 rounded-lg  p-5">
+              <post-component></post-component>
             </div>
           </div>
           <!-- /End replace -->

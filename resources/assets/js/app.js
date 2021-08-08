@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('layout-component', require('./components/LayoutComponent.vue'));
 Vue.component('post-component', require('./components/PostComponent.vue'));
+Vue.component('comment-component', require('./components/CommentComponent.vue'));
 
 
 const app = new Vue({
