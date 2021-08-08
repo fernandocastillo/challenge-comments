@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Symfony\Component\HttpFoundation\Response ;
 use App\Models\Comment;
 
-class ApiCommentsTest extends TestCase
+class ApiFetchCommentsTest extends TestCase
 {
     use RefreshDatabase;
 
