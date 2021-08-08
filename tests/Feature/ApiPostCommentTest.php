@@ -14,7 +14,7 @@ class ApiPostCommentTest extends TestCase
     public function test_trying_to_post_an_empty_comment()
     {
         $this
-            ->post('/api/comment')
+            ->postJson('/api/comment')
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
         ;
     }

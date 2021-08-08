@@ -15,5 +15,6 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'comment'], function () {
     Route::get('/','CommentController@get_comments');
+    Route::post('/','CommentController@create_comment');
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 
 
 class CommentController extends Controller
@@ -16,5 +17,10 @@ class CommentController extends Controller
             paginate(5);
 
         return CommentResource::collection($collection);
+    }
+
+
+    public function create_comment(CommentRequest $request){
+
     }
 }
