@@ -6,11 +6,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Traits\CommentTestable;
+use App\Traits\CommentTestable;
+use App\Models\Comment;
 
 class ApiPostCommentTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, CommentTestable;
 
     private function get_clean_payload(){
         return [
@@ -71,6 +72,33 @@ class ApiPostCommentTest extends TestCase
             ->postJson('/api/comment', $cleanPayload)
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
         ;
+
+    }
+
+    public function test_post_a_reply(){
+
+        $this->createCommentsInDB(10);
+
+        $existingComment = Comment::first();
+        $cleanPayload = $this->get_clean_payload();
+        $cleanPayload['parent_id'] = $existingComment->id;
+
+        $response = $this
+            ->postJson('/api/comment', $cleanPayload)
+            ->assertStatus(Response::HTTP_OK)
+        ;
+
+        $lastRecord = Comment::orderBy('id','desc')->first();
+        $response
+            ->assertJson([
+                'comment'=>[
+                    'id' => $lastRecord->id,
+                ]
+            ])
+        ;
+
+
+        $this->assertNotEquals($lastRecord->id, $existingComment->id);
 
     }
 

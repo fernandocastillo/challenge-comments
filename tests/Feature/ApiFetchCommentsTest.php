@@ -6,15 +6,11 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Symfony\Component\HttpFoundation\Response ;
-use App\Models\Comment;
+use App\Traits\CommentTestable;
 
 class ApiFetchCommentsTest extends TestCase
 {
-    use RefreshDatabase;
-
-    private function createCommentsInDB($quantity=5){
-        factory(Comment::class, $quantity)->create();
-    }
+    use RefreshDatabase, CommentTestable;
 
     public function test_get_comments_endpoint()
     {
