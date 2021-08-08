@@ -10,6 +10,15 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
+ * AXIOS
+ */
+window.axios = require('axios');
+window.axios.defaults.baseURL = document.head.querySelector('meta[name="api-base-url"]').content;
+
+
+window.moment = require('moment')
+
+/**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.

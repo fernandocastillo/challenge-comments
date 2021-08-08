@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function get_comments(Request $request){
 
         $collection = Comment::parents()->
-            orderBy('id','desc')->
+            orderBy('created_at','desc')->
             paginate(5);
 
         return CommentResource::collection($collection);
