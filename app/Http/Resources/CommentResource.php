@@ -14,6 +14,8 @@ class CommentResource extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $array = parent::toArray($request);
+        $array['children'] = $this->children;
+        return $array;
     }
 }

@@ -15,7 +15,7 @@ class ApiPostCommentTest extends TestCase
 
     private function get_clean_payload(){
         return [
-            'name' =>  'Hi my name is Fernando',
+            'name' =>  'Hi my name is Fernando, I have a Dog. But not sure if is a valid string.',
             'comment' => 'And this is a great c0mm3nt'
         ];
     }

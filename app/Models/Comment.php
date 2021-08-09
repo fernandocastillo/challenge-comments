@@ -16,4 +16,8 @@ class Comment extends Model
     public function scopeParents($query){
         return $query->where('parent_id',NULL);
     }
+
+    public function children(){
+        return $this->hasMany(self::class,'parent_id','id');
+    }
 }

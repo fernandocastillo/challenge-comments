@@ -26,7 +26,8 @@ window.moment = require('moment')
 
 Vue.component('layout-component', require('./components/LayoutComponent.vue'));
 Vue.component('post-component', require('./components/PostComponent.vue'));
-Vue.component('comment-component', require('./components/CommentComponent.vue'));
+Vue.component('comment-list-component', require('./components/CommentListComponent.vue'));
+Vue.component('individual-comment-component', require('./components/IndividualCommentComponent.vue'));
 Vue.component('error-display-component', require('./components/ErrorDisplayComponent.vue'));
 Vue.component('pagination', require('laravel-vue-pagination'));
 

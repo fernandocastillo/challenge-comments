@@ -54,7 +54,7 @@
       <div class="col-span-1 "></div>
       <div class="col-span-5 ">
         <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Comments</p>
-        <comment-component></comment-component>
+        <comment-list-component></comment-list-component>
       </div>
 
     </div>

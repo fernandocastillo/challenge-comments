@@ -27,12 +27,12 @@ class CommentRequest extends FormRequest
             'name' => [
                 'required',
                 'max:255',
-                'regex:/(^([a-zA-Z0-9 ]+)(\d+)?$)/u'
+                'regex:/(^([a-zA-Z0-9 .,]+)(\d+)?$)/u'
             ],
             'comment' => [
                 'required',
                 'max:500',
-                'regex:/(^([a-zA-Z0-9 ]+)(\d+)?$)/u'
+                'regex:/(^([a-zA-Z0-9 ,.]+)(\d+)?$)/u'
             ],
             'parent_id' => [
                 'exists:comments,id'
