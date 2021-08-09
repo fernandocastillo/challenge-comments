@@ -17,31 +17,45 @@
       </p>
     </div>
 
-    <div class="mt-2 mb-2 font-medium text-indigo-700 text-sm cursor-pointer flex " v-on:click="show_nested = !show_nested">
+    <div
+        v-on:click="show_nested = !show_nested"
+        v-if="!comment.parent_id"
+        class="mt-2 mb-2 font-medium text-indigo-700 text-sm cursor-pointer flex " >
       <div v-if="has_children" class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-indigo-600 mr-2 mt-1" aria-hidden="true"></div>
-      {{ has_children ? children_label : 'Add a reply'}}
+      {{ has_children ? children_label : reply_label }}
     </div>
 
+    <div class="bg-gray-100 p-5 rounded-md" v-if="show_nested">
 
-    <ul class="divide-y divide-gray-200 pl-10 bg-gray-100" v-if="has_children && show_nested">
-      <individual-comment-component
-          v-for="nested_comment in comment.children"
-          :key="nested_comment.id"
-          v-bind:comment="nested_comment"
-      ></individual-comment-component>
-    </ul>
+      <form-component
+          v-bind:parent_id="comment.id"
+      ></form-component>
+
+      <ul class="divide-y divide-gray-200  " >
+        <individual-comment-component
+            v-for="nested_comment in comment.children"
+            :key="nested_comment.id"
+            v-bind:comment="nested_comment"
+        ></individual-comment-component>
+      </ul>
+
+    </div>
+
 
   </li>
 </template>
 
 <script>
+  import { store } from "../store.js";
+
     export default {
       props: [
-        'comment'
+          'comment',
       ],
       data: function() {
         return {
           show_nested: false,
+          shared: store.state
         }
       },
       methods: {
@@ -55,6 +69,9 @@
           },
           children_label: function(){
             return this.show_nested ?  'Hide all replies' : 'View all replies'
+          },
+          reply_label: function(){
+            return this.show_nested ? 'Hide' : 'Add a reply'
           }
       }
     }

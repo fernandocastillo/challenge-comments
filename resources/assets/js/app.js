@@ -29,6 +29,7 @@ Vue.component('post-component', require('./components/PostComponent.vue'));
 Vue.component('comment-list-component', require('./components/CommentListComponent.vue'));
 Vue.component('individual-comment-component', require('./components/IndividualCommentComponent.vue'));
 Vue.component('error-display-component', require('./components/ErrorDisplayComponent.vue'));
+Vue.component('form-component', require('./components/FormComponent.vue'));
 Vue.component('pagination', require('laravel-vue-pagination'));
 
 

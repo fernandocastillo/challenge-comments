@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function get_comments(Request $request){
 
         $collection = Comment::parents()
-            ->with('children')
+            ->withSortedChildren()
             ->orderBy('created_at','desc')
             ->paginate(5)
         ;
@@ -28,6 +28,10 @@ class CommentController extends Controller
             'name' => $request->name,
             'comment' => $request->comment,
         ];
+
+        if($request->parent_id){
+            $payload['parent_id'] = $request->parent_id;
+        }
 
         $comment = Comment::create($payload);
 

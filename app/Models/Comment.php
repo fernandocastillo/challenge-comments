@@ -17,6 +17,12 @@ class Comment extends Model
         return $query->where('parent_id',NULL);
     }
 
+    public function scopeWithSortedChildren($query){
+        return $query->with(['children' => function ($q) {
+            $q->orderBy('created_at','desc');
+        }]);
+    }
+
     public function children(){
         return $this->hasMany(self::class,'parent_id','id');
     }
