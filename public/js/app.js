@@ -1107,6 +1107,7 @@ window.moment = __webpack_require__(55);
 Vue.component('layout-component', __webpack_require__(38));
 Vue.component('post-component', __webpack_require__(41));
 Vue.component('comment-component', __webpack_require__(52));
+Vue.component('error-display-component', __webpack_require__(193));
 Vue.component('pagination', __webpack_require__(192));
 
 var app = new Vue({
@@ -32593,10 +32594,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-
   mounted: function mounted() {
     var _this = this;
 
@@ -32608,7 +32638,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       paginator: {},
-      comments: []
+      comments: [],
+      commentForm: {
+        name: '',
+        comment: ''
+      },
+      errors: {},
+      loading: false
     };
   },
 
@@ -32625,6 +32661,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this2.paginator = response.data;
         _this2.comments = response.data.data;
       });
+    },
+
+    postComment: function postComment() {
+      var _this3 = this;
+
+      var payload = this.commentForm;
+      this.loading = true;
+      this.errors = {};
+      axios.post('comment', payload).then(function (response) {
+        //this.paginator = response.data;
+        //this.comments = response.data.data;
+        console.debug('success', response);
+      }).catch(function (error) {
+        _this3.errors = error.response.data.errors;
+      }).finally(function () {
+        _this3.loading = false;
+      });
     }
   }
 });
@@ -32640,6 +32693,60 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("div", { staticClass: "mt-5 mb-5 grid grid-cols-7 gap-4" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "col-span-1 flex justify-evenly pt-2 px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white ",
+            class: {
+              "bg-indigo-300": _vm.loading,
+              "bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500": !_vm.loading
+            },
+            attrs: { disabled: _vm.loading, type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.postComment()
+              }
+            }
+          },
+          [
+            _vm.loading
+              ? _c(
+                  "svg",
+                  {
+                    staticClass: "h-5 w-5 animate-spin",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d:
+                          "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                      }
+                    })
+                  ]
+                )
+              : _vm._e(),
+            _vm._v("\n\n      Post\n\n    ")
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("error-display-component", { attrs: { errors: _vm.errors } }),
+      _vm._v(" "),
       _c(
         "ul",
         { staticClass: "divide-y divide-gray-200 bg-" },
@@ -32690,7 +32797,9 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "mt-1" }, [
                 _c("p", { staticClass: "line-clamp-2 text-sm text-gray-600" }, [
-                  _vm._v("\n        " + _vm._s(comment.comment) + "\n      ")
+                  _vm._v(
+                    "\n          " + _vm._s(comment.comment) + "\n        "
+                  )
                 ])
               ])
             ]
@@ -32707,7 +32816,76 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-span-3 relative border border-gray-300 rounded-md px-3 py-2 shadow-sm  focus-within:ring-indigo-600 focus-within:border-indigo-600"
+      },
+      [
+        _c(
+          "label",
+          {
+            staticClass:
+              "absolute -top-2 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900",
+            attrs: { for: "name" }
+          },
+          [_vm._v("Name")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass:
+            "block w-full border-0 p-0 text-gray-900 placeholder-gray-500  sm:text-sm",
+          attrs: {
+            type: "text",
+            name: "name",
+            id: "name",
+            placeholder: "Jane Doe"
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-span-3 relative border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600"
+      },
+      [
+        _c(
+          "label",
+          {
+            staticClass:
+              "absolute -top-2 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900",
+            attrs: { for: "name" }
+          },
+          [_vm._v("Comment")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass:
+            "block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm",
+          attrs: {
+            type: "text",
+            name: "name",
+            id: "comment",
+            placeholder: "A great comment..."
+          }
+        })
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -54321,6 +54499,104 @@ var LaravelVuePagination_component = normalizeComponent(
 
 /******/ })["default"];
 //# sourceMappingURL=laravel-vue-pagination.common.js.map
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(194)
+/* template */
+var __vue_template__ = __webpack_require__(195)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ErrorDisplayComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-43a9d15c", Component.options)
+  } else {
+    hotAPI.reload("data-v-43a9d15c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 194 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['errors']
+});
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "mb-5" },
+    _vm._l(_vm.errors, function(val, key) {
+      return _c(
+        "p",
+        {
+          staticClass: "mt-2 text-sm text-red-600",
+          attrs: { id: "email-error" }
+        },
+        [_vm._v(_vm._s(val[0]))]
+      )
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-43a9d15c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

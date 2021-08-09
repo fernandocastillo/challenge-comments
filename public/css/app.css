@@ -20,3 +20,8 @@
   color: #5b5b5b;
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
