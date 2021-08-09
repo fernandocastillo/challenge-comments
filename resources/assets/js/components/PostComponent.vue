@@ -4,8 +4,8 @@
       <div class="max-w-max lg:max-w-7xl mx-auto">
         <div class="relative z-10 mb-8 md:mb-2 md:px-6">
           <div class="text-base max-w-prose lg:max-w-none">
-            <h2 class="leading-6 text-indigo-600 font-semibold tracking-wide uppercase">Transactions</h2>
-            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">A better way to send money</p>
+            <h2 class="leading-6 text-indigo-600 font-semibold tracking-wide uppercase">Github Repository</h2>
+            <a href="https://github.com/fernandocastillo/challenge-comments" target="_blank" class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">https://github.com/fernandocastillo/challenge-comments</a>
           </div>
         </div>
         <div class="relative">
@@ -29,19 +29,19 @@
             <div class="lg:grid lg:grid-cols-2 lg:gap-6">
               <div class="prose prose-indigo prose-lg text-gray-500 lg:max-w-none">
                 <p>Ultrices ultricies a in odio consequat egestas rutrum. Ut vitae aliquam in ipsum. Duis nullam placerat cursus risus ultrices nisi, vitae tellus in. Qui non fugiat aut minus aut rerum. Perspiciatis iusto mollitia iste minima soluta id.</p>
-                <p>Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue <a href="#">maecenas</a> risus nulla ultrices congue nunc tortor. Eu leo risus porta integer suspendisse sed sit ligula elit.</p>
+
 
               </div>
               <div class="mt-6 prose prose-indigo prose-lg text-gray-500 lg:mt-0">
                 <p>Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue maecenas risus nulla ultrices congue nunc tortor.</p>
-                <p>Eu leo risus porta integer suspendisse sed sit ligula elit. Elit egestas lacinia sagittis pellentesque neque dignissim vulputate sodales. Diam sed mauris felis risus, ultricies mauris netus tincidunt. Mauris sit eu ac tellus nibh non eget sed accumsan. Viverra ac sed venenatis pulvinar elit. Cras diam quis tincidunt lectus. Non mi vitae, scelerisque felis nisi, netus amet nisl.</p>
+
 
               </div>
             </div>
             <div class="mt-8 inline-flex rounded-md shadow">
-              <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-                Contact sales
-              </a>
+              <div class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                Read More
+              </div>
             </div>
           </div>
         </div>

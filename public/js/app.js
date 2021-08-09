@@ -32272,16 +32272,20 @@ var staticRenderFns = [
             staticClass:
               "leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
           },
-          [_vm._v("Transactions")]
+          [_vm._v("Github Repository")]
         ),
         _vm._v(" "),
         _c(
-          "p",
+          "a",
           {
             staticClass:
-              "mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+              "mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl",
+            attrs: {
+              href: "https://github.com/fernandocastillo/challenge-comments",
+              target: "_blank"
+            }
           },
-          [_vm._v("A better way to send money")]
+          [_vm._v("https://github.com/fernandocastillo/challenge-comments")]
         )
       ])
     ])
@@ -32303,16 +32307,6 @@ var staticRenderFns = [
               _vm._v(
                 "Ultrices ultricies a in odio consequat egestas rutrum. Ut vitae aliquam in ipsum. Duis nullam placerat cursus risus ultrices nisi, vitae tellus in. Qui non fugiat aut minus aut rerum. Perspiciatis iusto mollitia iste minima soluta id."
               )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue "
-              ),
-              _c("a", { attrs: { href: "#" } }, [_vm._v("maecenas")]),
-              _vm._v(
-                " risus nulla ultrices congue nunc tortor. Eu leo risus porta integer suspendisse sed sit ligula elit."
-              )
             ])
           ]
         ),
@@ -32328,12 +32322,6 @@ var staticRenderFns = [
               _vm._v(
                 "Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue maecenas risus nulla ultrices congue nunc tortor."
               )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Eu leo risus porta integer suspendisse sed sit ligula elit. Elit egestas lacinia sagittis pellentesque neque dignissim vulputate sodales. Diam sed mauris felis risus, ultricies mauris netus tincidunt. Mauris sit eu ac tellus nibh non eget sed accumsan. Viverra ac sed venenatis pulvinar elit. Cras diam quis tincidunt lectus. Non mi vitae, scelerisque felis nisi, netus amet nisl."
-              )
             ])
           ]
         )
@@ -32341,13 +32329,12 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "mt-8 inline-flex rounded-md shadow" }, [
         _c(
-          "a",
+          "div",
           {
             staticClass:
-              "flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700",
-            attrs: { href: "#" }
+              "flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
           },
-          [_vm._v("\n              Contact sales\n            ")]
+          [_vm._v("\n              Read More\n            ")]
         )
       ])
     ])
