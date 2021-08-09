@@ -1,5 +1,7 @@
 <template>
+
   <li class="relative  py-5 px-1 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+
     <div class="flex justify-between space-x-3">
       <div class="min-w-0 flex-1">
         <div class="block focus:outline-none">
@@ -7,10 +9,10 @@
         </div>
       </div>
       <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium  bg-indigo-100 text-indigo-800">
-            {{ since(comment.created_at) }}
-          </span>
-
+        {{ since(comment.created_at) }}
+      </span>
     </div>
+
     <div class="mt-1">
       <p class="line-clamp-2 text-sm text-gray-600">
         {{ comment.comment }}
@@ -21,26 +23,30 @@
         v-on:click="show_nested = !show_nested"
         v-if="!comment.parent_id"
         class="mt-2 mb-2 font-medium text-indigo-700 text-sm cursor-pointer flex " >
-      <div v-if="has_children" class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-indigo-600 mr-2 mt-1" aria-hidden="true"></div>
+      <div
+          v-if="has_children"
+          class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-indigo-600 mr-2 mt-1"
+          aria-hidden="true"></div>
+
       {{ has_children ? children_label : reply_label }}
     </div>
 
-    <div class="bg-gray-100 p-5 rounded-md" v-if="show_nested">
+    <div
+        v-if="show_nested"
+        class="bg-gray-100 p-5 rounded-md">
 
       <form-component
           v-bind:parent_id="comment.id"
       ></form-component>
 
-      <ul class="divide-y divide-gray-200  " >
+      <ul class="divide-y divide-gray-200">
         <individual-comment-component
             v-for="nested_comment in comment.children"
             :key="nested_comment.id"
             v-bind:comment="nested_comment"
         ></individual-comment-component>
       </ul>
-
     </div>
-
 
   </li>
 </template>

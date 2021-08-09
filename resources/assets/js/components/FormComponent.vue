@@ -12,13 +12,13 @@
       </div>
 
       <button
-          :disabled="shared.loading"
+          :disabled="store.state.loading"
           v-on:click="postComment()"
           type="button"
           class="md:col-span-1 flex justify-evenly pt-2 px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white "
-          v-bind:class="{ 'bg-indigo-300': shared.loading, 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500': !shared.loading }"
+          v-bind:class="{ 'bg-indigo-300': store.state.loading, 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500': !store.state.loading }"
       >
-        <svg v-if="shared.loading" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg v-if="store.state.loading" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
 
@@ -28,11 +28,12 @@
     </div>
 
     <error-display-component v-bind:errors="errors" />
+
   </div>
 </template>
 
 <script>
-    import {store} from "../store";
+    import { store } from "../store";
 
     export default {
       props:[
@@ -43,13 +44,11 @@
           form_name: '',
           form_comment: '',
           errors: {},
-          shared: store.state,
           store,
         }
       },
       methods: {
         postComment: function(){
-          store.startHttpRequest()
 
           const payload = {
             name: this.form_name,
@@ -60,18 +59,16 @@
             payload.parent_id = this.parent_id
           }
 
-          axios.post('comment', payload)
-              .then(() => {
-                this.resetForm()
-                store.getResults(1)
-              })
-              .catch( error => {
-                this.setErrors(error.response.data.errors)
-              })
-              .finally(()=>{
-                store.endHttpRequest()
-              })
-          ;
+          const successCallback = () => {
+            this.resetForm()
+          }
+
+          const errorCallback = (error) => {
+            this.setErrors(error.response.data.errors)
+          }
+
+          store.postComment(payload, successCallback, errorCallback)
+
         },
         resetForm: function(){
           this.form_name = ''

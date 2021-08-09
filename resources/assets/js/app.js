@@ -10,12 +10,14 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 /**
- * AXIOS
+ * Axios
  */
 window.axios = require('axios');
 window.axios.defaults.baseURL = document.head.querySelector('meta[name="api-base-url"]').content;
 
-
+/**
+ * Moment
+ */
 window.moment = require('moment')
 
 /**

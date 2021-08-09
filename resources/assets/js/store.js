@@ -13,10 +13,27 @@ export const store = {
         this.state.comments = response.data.data;
     },
     getResults: (page = 1) => {
+        const _this = this.a;
         axios.get('comment?page=' + page)
             .then(response => {
-                this.a.setPaginator(response)
+                _this.setPaginator(response)
             });
+    },
+    postComment: (payload, successCallback, errorCallback) => {
+        const _this = this.a;
+        _this.startHttpRequest()
+        axios.post('comment', payload)
+            .then(() => {
+                if(successCallback) successCallback()
+                _this.getResults(1)
+            })
+            .catch( error => {
+                if(errorCallback) errorCallback(error)
+            })
+            .finally(()=>{
+                _this.endHttpRequest()
+            })
+        ;
     },
     startHttpRequest: function(){
         this.state.loading=true

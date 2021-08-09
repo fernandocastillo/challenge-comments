@@ -101,9 +101,6 @@
 </template>
 
 <script>
-
-import ExampleComponent from "./ExampleComponent";
-export default {
-  components: {ExampleComponent}
-}
+  export default {
+  }
 </script>
